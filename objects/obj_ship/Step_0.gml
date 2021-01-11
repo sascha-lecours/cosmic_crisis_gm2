@@ -1,14 +1,6 @@
-/// @description Take player input and move
+/// @description Take player input and act
 _turnDirection = 0;
-_turnSpeed = 5;
-_thrust = 0.05;
-
-function TurnShip(_ship){
-	if(_ship._turnDirection != 0){
-		_ship.image_angle += _ship._turnSpeed * _ship._turnDirection;
-	}
-	
-}
+_isShooting = false;
 
 if(keyboard_check(vk_left)){
 	_turnDirection = 1;
@@ -16,8 +8,22 @@ if(keyboard_check(vk_left)){
 	_turnDirection = -1;
 }
 
+if(keyboard_check(vk_space)){
+	_isShooting = true;
+}
+
 if(keyboard_check(vk_up)){
 	motion_add(image_angle, _thrust);
 }
 
+move_wrap(true, true, sprite_width/2);
+
 TurnShip(self);
+
+if(_isShooting and _shotCooldown <= 0){
+	var inst = instance_create_layer(x,y,"Instances", obj_bullet)
+	inst.direction = image_angle;
+	_shotCooldown = _shotInterval;
+}
+
+_shotCooldown -= delta_time/1000000;
