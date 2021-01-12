@@ -21,7 +21,9 @@ move_wrap(true, true, sprite_width/2);
 TurnShip(self);
 
 if(_isShooting and _shotCooldown <= 0){
-	var inst = instance_create_layer(x,y,"Instances", obj_bullet)
+	var bulletX = x+lengthdir_x(_shotOffset, image_angle)
+	var bulletY = y+lengthdir_y(_shotOffset, image_angle)
+	var inst = instance_create_layer(bulletX,bulletY,"Instances", obj_bullet)
 	inst.direction = image_angle;
 	_shotCooldown = _shotInterval;
 }

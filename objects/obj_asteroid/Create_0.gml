@@ -1,7 +1,5 @@
 /// @description Initialize
 
-randomize(); // TODO: This can be moved to a gamecontroller object later
-
 sprite_index = choose( 
 	spr_asteroid_small,
 	spr_asteroid_med,
@@ -16,6 +14,7 @@ _rotation_direction = choose(1, -1);
 speed = 1;
 
 function BreakApart() {
+	score += 10;
 	instance_destroy();
 	if(sprite_index == spr_asteroid_big){
 		repeat(2){
