@@ -26,6 +26,7 @@ if(_isShooting and _shotCooldown <= 0){
 	var inst = instance_create_layer(bulletX,bulletY,"Instances", obj_bullet)
 	inst.direction = image_angle;
 	_shotCooldown = _shotInterval;
+	audio_play_sound(_shotSounds[1], 1, false);
 }
 
 _shotCooldown -= delta_time/1000000;

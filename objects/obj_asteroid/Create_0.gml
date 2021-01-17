@@ -30,4 +30,5 @@ function BreakApart() {
 	repeat(irandom_range(5,12)){
 		instance_create_layer(x,y,"Instances", obj_debris);	
 	}
+	audio_play_sound(asteroid_break_1, 1, false);
 }

@@ -12,14 +12,16 @@ if(keyboard_check_pressed(vk_enter)){
 	}
 }
 
-// Note: this is horrendous, lol
+// Note: having this in the step eveny is horrendous, lol
 
 if (room == rm_game){
 	if(score >= 1000){
-	room_goto(rm_win);	
-}
+		room_goto(rm_win);
+		audio_play_sound(player_wins, 1, false);
+	}
 
-if(lives <= 0){
-	room_goto(rm_gameover);	
-}
+	if(lives <= 0){
+		room_goto(rm_gameover);
+		audio_play_sound(game_over, 1, false);
+	}
 }

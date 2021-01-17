@@ -6,6 +6,7 @@ _turnSpeed = 5;
 _thrust = 0.05;
 _shotInterval = 0.2;
 _shotOffset = sprite_width/2;
+_shotSounds = [player_shoot_1, player_shot_2]
 
 
 function TurnShip(_ship){
